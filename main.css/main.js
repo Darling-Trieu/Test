@@ -39,7 +39,33 @@ unlockBtn.addEventListener("click", () => {
     }
   }, 50);
 });
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  const hearts = ["❤️","💖","💕","💓","💗","💘"];
+  heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
 
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.top = "100vh"; 
+  heart.style.fontSize = Math.random() * 20 + 20 + "px";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 500);
+function createLockHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart-lock");
+  const hearts = ["❤️","💖","💕","💓","💗","💘"];
+  heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 20 + "px";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.getElementById("lock-screen").appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createLockHeart, 500);
 
 
 window.addEventListener("load", () => {
