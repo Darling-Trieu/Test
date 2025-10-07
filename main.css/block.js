@@ -1,20 +1,26 @@
 const Mk = "09102006";
+const TK = "Pnhu";
 const MAX_ATTEMPTS = 3;
-
+let attempts = 0;
 window.addEventListener('DOMContentLoaded', () => {
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-    const mk = prompt("Em sinh ngày mấy? (nhập ddmmyyyy)");
-    const input = mk.trim();
-    if (input == Mk) {
+  const form = document.getElementById('loginForm');
+  const inpUser = document.getElementById('username');
+  const inpPass = document.getElementById('password');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = inpUser.value.trim().toLowerCase();
+    const password = inpPass.value.trim();
+    if (username === TK.toLowerCase() && password === Mk) {
+      location.href = "index.html";
       return;
-    } 
-    else {
-      const left = MAX_ATTEMPTS - attempt;
+    } else {
+      attempts++;
+      const left = MAX_ATTEMPTS - attempts;
       if (left > 0) {
-        alert("Sai mật khẩu. Còn " + left + " lần thử.");
+        alert("Sai tên đăng nhập hoặc mật khẩu. Còn " + left + " lần thử.");
+      } else {
+        location.href = "phake.html";
       }
     }
-  }
-
-  location.replace("phake.html");
+  });
 });

@@ -1,3 +1,4 @@
+
 /* Header và Footer mặc định ẩn */
 header, footer {
   opacity: 0;
@@ -137,7 +138,7 @@ footer {
   color: white;
   z-index: 9999;
   overflow: hidden;
-  animation: fadeIn 1.5s ease;
+  animation: fadeIn 0s ease;
 }
 
 #lock-screen h1 {
@@ -176,10 +177,6 @@ footer {
   100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 .heart {
   position: fixed;
   color: rgba(255, 255, 255, 0.8);
